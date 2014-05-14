@@ -1,0 +1,8 @@
+{
+  "name": "workflows-for-the-modern-web",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "reveal.js": "2.6.x"
+  }
+}

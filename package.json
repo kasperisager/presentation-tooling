@@ -1,0 +1,20 @@
+{
+  "name": "workflows-for-the-modern-web",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-connect": "0.6.x",
+    "grunt-contrib-watch": "0.5.x",
+    "grunt-contrib-copy": "0.5.x",
+    "grunt-contrib-jshint": "0.8.x",
+    "load-grunt-tasks": "0.3.x",
+    "grunt-coffeelint": "0.0.x"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}

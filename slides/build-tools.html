@@ -1,0 +1,146 @@
+<section>
+  <h2>Section 1: Build Tools</h2>
+</section>
+
+<section data-background="images/happiness.gif">
+
+  <h3>The key to productivity:</h3>
+
+  <h2 class="fragment">Automation</h2>
+
+</section>
+
+<section>
+
+  <h3>Automate all the things!</h3>
+
+  <p class="fragment">Running your test spec<span class="fragment"> – <em>Automate it!</em></span></p>
+  <p class="fragment">Concatenating scripts<span class="fragment"> – <em>Automate it!</em></span></p>
+  <p class="fragment">Precompiling templates<span class="fragment"> – <em>Automate it!</em></span></p>
+  <p class="fragment">Injecting dependencies<span class="fragment"> – <em>Automate it!</em></span></p>
+
+  <br>
+  <h4 class="fragment">You get the idea...</h4>
+
+</section>
+
+<section>
+  <h2>A single tool for the entire build chain</h2>
+</section>
+
+<section>
+  <h2>Let one of these fellas help you out...</h2>
+</section>
+
+<section data-background="#e48632">
+
+  <img src="images/grunt.png">
+
+  <p style="color:#453015;"><b>Grunt</b></p>
+
+</section>
+
+<section>
+
+  <h3>Gruntfile.js</h3>
+
+  <pre><code data-trim>
+module.exports = function (grunt) {
+  grunt.loadNpmTasks('grunt-task-a');
+  grunt.loadNpmTasks('grunt-task-b');
+  ...
+});
+  </code></pre>
+
+</section>
+
+<section>
+
+  <pre><code data-trim>
+...
+grunt.initConfig({
+  taskA: {
+    options: {
+      foo: 'bar'
+    },
+    glob: {
+      src: ['glob/**/*.baz'],
+      dest: 'dist/'
+    }
+  },
+  taskB: {
+    files: ['dist/**/*']
+  }
+});
+...
+  </code></pre>
+
+</section>
+
+<section>
+
+  <pre><code data-trim>
+grunt.registerTask('default', [
+  'taskA',
+  'taskB'
+]);
+  </code></pre>
+
+</section>
+
+<section data-background="#fff">
+
+  <img src="images/gulp.png">
+
+  <p style="color:#2c3e50;">gulp.js</p>
+
+</section>
+
+<section>
+
+  <h3>gulpfile.js</h3>
+
+  <pre><code data-trim>
+var gulp  = require('gulp')
+  , taskA = require('gulp-task-a')
+  , taskB = require('gulp-task-b');
+...
+  </code></pre>
+
+</section>
+
+<section>
+
+  <pre><code data-trim>
+...
+gulp.task('default', function () {
+  return gulp.src('glob/**/*.baz')
+    .pipe(taskA({
+      foo: 'bar'
+    }))
+    .pipe(taskB())
+    .pipe(gulp.dest('dist'));
+});
+  </code></pre>
+
+</section>
+
+<section>
+  <h2>The selection is vast</h2>
+</section>
+
+<section>
+
+  <h3>Automated workflow</h3>
+
+  <div class="fragment">
+    <h3>=</h3>
+    <h3>Increased productivity</h3>
+  </div>
+
+  <div class="fragment">
+    <h3>=</h3>
+    <h2>Better products</h2>
+  </div>
+
+</section>
