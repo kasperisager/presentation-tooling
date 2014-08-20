@@ -2,6 +2,9 @@
   "generator-reveal": {
     "presentationTitle": "Workflows for the modern web",
     "packageVersion": "1.0.0",
-    "useSass": false
+    "useSass": false,
+    "deployToGithubPages": true,
+    "githubUsername": "kasperisager",
+    "githubRepository": "presentation-tooling"
   }
 }

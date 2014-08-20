@@ -1,4 +1,4 @@
-# Generated on 2014-04-23 using generator-reveal 0.3.4
+# Generated on 2014-08-20 using generator-reveal 0.3.9
 module.exports = (grunt) ->
 
   grunt.initConfig
@@ -10,8 +10,7 @@ module.exports = (grunt) ->
           livereload: true
         files: [
           'index.html'
-          'slides/*.md'
-          'slides/*.html'
+          'slides/{,*/}*.{md,html}'
           'js/*.js'
         ]
 
@@ -48,6 +47,7 @@ module.exports = (grunt) ->
       options:
         indentation:
           value: 2
+          level: 'ignore'
 
       all: ['Gruntfile.coffee']
 
@@ -77,6 +77,20 @@ module.exports = (grunt) ->
         }]
 
 
+    buildcontrol:
+
+      options:
+        dir: 'dist'
+        commit: true
+        push: true
+        message: 'Built from %sourceCommit% on branch %sourceBranch%'
+      pages:
+        options:
+          remote: 'git@github.com:kasperisager/presentation-tooling.git'
+          branch: 'gh-pages'
+
+
+
   # Load all grunt tasks.
   require('load-grunt-tasks')(grunt)
 
@@ -102,12 +116,18 @@ module.exports = (grunt) ->
       'jshint'
     ]
 
-  grunt.registerTask 'server',
+  grunt.registerTask 'serve',
     'Run presentation locally and start watch process (living document).', [
       'buildIndex'
       'connect:livereload'
       'watch'
     ]
+
+  grunt.registerTask 'server', ->
+    grunt.log.warn
+    'The `server` task has been deprecated.
+     Use `grunt serve` to start a server.'
+    grunt.task.run ['serve']
 
   grunt.registerTask 'dist',
     'Save presentation files to *dist* directory.', [
@@ -115,6 +135,14 @@ module.exports = (grunt) ->
       'buildIndex'
       'copy'
     ]
+
+
+  grunt.registerTask 'deploy',
+    'Deploy to Github Pages', [
+      'dist'
+      'buildcontrol'
+    ]
+
 
   # Define default task.
   grunt.registerTask 'default', [
